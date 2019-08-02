@@ -1,0 +1,40 @@
+import java.util.Scanner; //This is putting the scanner libary
+//Scanner is a way to get infromation from the keyboard
+
+
+/*
+In Java everything works inside a class, in this we are inside the Example.java 
+file with the Main Class. Each class still needs a main Method (C++ = function).
+This program showcases all the basic ways that you can create a Java program. 
+*/
+public class Main {
+
+	public static void main(String args[]) //This is called the method header, 
+	//Anything between {} is called the method body. 
+	{
+		double Tuna = 0;	/*We crate a variable by giving i a data type (double) name (Tuna) 
+		and then using =, assingment operator to give it a inital value. 
+		
+		Out is a class of diffrent prinitings, println is only one of many
+		methods which you can print stuff out in Java 		
+		*/
+		System.out.print("The Value of Tuna is $");
+		System.out.println(Tuna);
+		System.out.print("I like tuna");
+		System.out.println();
+		
+		/*
+		The differnce bewteen println and print is that println will 
+		move you to the next line after the item is printed.  
+		*/
+		
+		Scanner Input = new Scanner(System.in); 
+		
+		/*We hold the 
+		Keyboard input in the variable Input of the class Scanner
+		then we say that it equals to the new input from keyboard.
+		*/
+		
+		System.out.println(Input.nextLine());
+	}
+}

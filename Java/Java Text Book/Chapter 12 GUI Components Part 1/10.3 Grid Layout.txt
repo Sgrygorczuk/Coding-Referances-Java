@@ -1,0 +1,55 @@
+import java.awt.GridLayout;
+import java.awt.Container;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JFrame;
+import javax.swing.JButton;
+
+public class Main extends JFrame implements ActionListener {
+	//final means that you can't change it.
+	private final JButton [] buttons; //Creats and array of buttons
+	private static final String [] names = {"one", "two", "three", "four", "five", "six"}; //Creates and array of stirngs
+	private boolean toggle = true;
+	private final Container container; 
+	private final GridLayout gridOne;
+	private final GridLayout gridTwo;
+	
+	public Main()
+	{
+		super("Demo Grids");
+		gridOne = new GridLayout(2,3,5,5); //2 by 3 with gaps of 5 by 5;
+		gridTwo = new GridLayout(2,3); //2 by 3 no gaps.
+		container = getContentPane();
+		setLayout(gridOne);
+		buttons = new JButton[names.length];
+		
+		for(int i = 0; i < names.length; i++)
+		{
+			buttons[i] = new JButton(names[i]);// assings the name of button i to have the string name of names[i]
+			buttons[i].addActionListener(this); //adds a listiner to that button
+			add(buttons[i]); //adds that button to the panel
+		}
+	}	
+	
+	public void actionPerformed(ActionEvent event)
+	{
+		if(toggle)
+		{
+			setLayout(gridTwo); //if the button is pressed and toggle is true it will change to layout 2
+		}
+		else
+		{
+			setLayout(gridOne); //If toggle is false it will set layout to layout 1
+		}
+		toggle = !toggle; //sets toggle to negative of itself
+		container.validate(); //refreshes the frame
+	}
+	
+	public static void main(String [] args )
+	{
+		Main frame = new Main();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(300,300);
+		frame.setVisible(true);
+	}
+}

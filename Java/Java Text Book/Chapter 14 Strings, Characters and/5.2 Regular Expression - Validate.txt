@@ -1,0 +1,55 @@
+
+public class Validate 
+{
+	public static boolean validateFirstName(String firstName)
+	{
+		/*
+		 [A-Z] says that you have to start of with a Uppercase letter between A and Z.
+		 then [a-zA-Z] says you can haven any letters follow after it.
+		 We don't do [A-z] becues there are few symbols in bewtween the uppercase
+		 and lower case numebrs, such as '\'  which should not be part of a name.
+		 The * means only zero character can be matched from the thing after it. 
+		 So,
+		 */
+		return firstName.matches("[A-Z][a-zA-Z]*");
+	}
+	
+	public static boolean validateLastName(String lastName)
+	{
+		/*
+		Here we start with [a-zA-z] saying it cans start with anything 
+		and thend you extend the name with ' or - whihc would be 
+		follwed by letters. 
+		*/
+		return lastName.matches("[a-zA-z]+(['-][a-zA-Z]+)*");
+	}
+	
+	public static boolean validateAddress(String address)
+	{
+		return address.matches("\\d+\\s+([a-zA-Z]+|[a-zA-Z]+\\s[a-zA-Z]+)");
+	}
+	
+	public static boolean validateCity(String city)
+	{
+		return city.matches("([a-zA-Z]+|[a-zA-Z]+\\s[a-zA-Z]+)");
+	}
+	
+	public static boolean validateState(String state)
+	{
+		return state.matches("([a-zA-Z]+|[a-zA-Z]+\\s[a-zA-Z]+)");
+	}
+	
+	public static boolean validateZip(String zip)
+	{
+		return zip.matches("\\d{5}");
+	}
+	
+	public static boolean validatePhone(String phone)
+	{
+		/*
+		[1-9] gives the range, \\ indicates S
+		  
+		 */
+		return phone.matches("[1-9]\\d{2}-[1-9]\\d{2}-\\d{4}");
+	}
+}

@@ -1,0 +1,36 @@
+
+public class Main 
+{
+
+	
+	public static void main(String args[]) 
+	{
+	int Girls = 3;
+	int Boys = 13;
+	int People = Boys / Girls; //This will result in with People == 4 becues the actualy number
+							   // is 4.something and it rounds down for intigers
+	System.out.print("Boy/Girls: ");
+	System.out.println(People);
+
+	People = Boys % Girls; //This will give the value of something 4.something
+	
+	System.out.print("Boys % Girls: ");
+	System.out.println(People); 
+	
+	System.out.print("Girls: ");
+	System.out.println(Girls);
+	System.out.print("Girls++: "); //This increments after the line ends.
+	System.out.println(Girls++);
+	System.out.print("Girls: ");
+	System.out.println(Girls);
+	System.out.print("++Girls: "); //This increments before the line ends.
+	System.out.println(++Girls);
+	System.out.print("Girls: ");
+	System.out.println(Girls);
+	
+	Girls += 10;
+	System.out.print("Girls += 10: "); //This is equivalent to Girls = Girls + 10;
+	System.out.println(Girls);
+	
+	}
+}

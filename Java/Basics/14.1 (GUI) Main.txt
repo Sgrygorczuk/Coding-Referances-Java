@@ -1,0 +1,39 @@
+/*
+GUI (Goo-ee) or Graphical User Interface, to start using it you first have to import few packages
+ */
+
+import javax.swing.JOptionPane; //Uses generic Java interface
+import javax.swing.JFrame; //Gives you windows features.
+
+public class Main {
+	
+	public static void main (String[] args)
+	{
+		
+		//Example #1: 
+		
+		String FirstNumber = JOptionPane.showInputDialog("Enter First Number: ");	//Displays a box with the string and takes in an input.
+		String SecondNumber  = JOptionPane.showInputDialog("Enter Second Number: ");
+		
+		int NumberOne = Integer.parseInt(FirstNumber); //Changes string to int
+		int NumberTwo = Integer.parseInt(SecondNumber);
+		int Sum = NumberOne + NumberTwo;
+		
+		/*
+		Null is placement, if you write null it will put it in the center of the screen, the second variable is 
+		what will be written in the box, the third one is the title of the box, and the fourth is allowing you to put 
+		icons but we don't need an icon so we just put a plane message. 
+		*/
+		
+		JOptionPane.showMessageDialog(null,"The anwser is: " + Sum, "The Title", JOptionPane.PLAIN_MESSAGE);
+
+		//Exmaple #2: 
+		Graphical Image = new Graphical();
+		Image.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //This tells you how the window should be closed, which means you have to hit the x button to close it.
+		Image.setSize(400, 300); //Sets the size of the window in pixels
+		Image.setVisible(true); //Tells you if the window is visible, you could change it and make the widow disapper and appear using this.
+		
+		
+	}
+
+}

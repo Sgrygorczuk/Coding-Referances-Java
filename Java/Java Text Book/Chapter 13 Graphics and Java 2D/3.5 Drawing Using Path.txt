@@ -1,0 +1,65 @@
+/*
+This program shows off how to draw an shape in Graphics2D, it works similar 
+to polygon then it shows it how it can be rotated, around a specific point.
+*/
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.geom.GeneralPath;
+import java.security.SecureRandom;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+
+public class Main extends JPanel {
+	
+
+	public void paintComponent(Graphics g)
+	{
+		super.paintComponents(g);
+		/*
+		Secure Random is a number generator 
+		*/
+		SecureRandom random = new SecureRandom();
+		
+		int [] x = {55, 67, 109, 73, 83, 55, 27, 37, 1, 43};
+		int [] y = {0, 36, 36, 54, 96, 72, 96, 54, 36, 36};
+		
+	Graphics2D g2d = (Graphics2D) g;
+	GeneralPath star = new GeneralPath();
+	
+	star.moveTo(x[0], y[0]);
+	//Creates the shape of a star that the star will then remember
+	for(int i = 1; i < x.length; i++)
+	{
+		star.lineTo(x[i], y[i]);
+	}
+	
+	star.closePath();
+	
+	//Traslate the origin to (150,150)
+	g2d.translate(150, 150);
+	
+	for(int i = 1; i <= 20; i++)
+	{
+		//Roatres the star by 36 degrees
+		g2d.rotate(Math.PI/10.0);
+		//Generates a random color for R G B between 0 and 255.
+		g2d.setColor(new Color(random.nextInt(256),random.nextInt(256),random.nextInt(256)));
+		g2d.fill(star);
+	}
+	
+	
+	}
+	
+	public static void main(String [] args )
+	{
+		Main draw = new Main();
+		JFrame frame = new JFrame("FoNT");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(300,300);
+		frame.add(draw);
+		frame.setVisible(true);
+	}
+}

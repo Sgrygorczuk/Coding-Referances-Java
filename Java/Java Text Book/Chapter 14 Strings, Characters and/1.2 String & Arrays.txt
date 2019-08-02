@@ -1,0 +1,37 @@
+/*
+This program shows how the strings can be used and how they are 
+bacisally just arrays of strings. It shows how to access indiviaul 
+characters in a string and how to transfer parts of a string into 
+a character array. 
+*/
+
+public class Main {
+	
+	public static void main(String [] args )
+	{
+		String s1 = "Hello there";
+		char [] charArray = new char[5]; //Creates and char array of size 5
+		
+		System.out.printf("s1 = %s", s1);
+		
+		System.out.printf("%nLenght of s1: %d", s1.length()); //Prints out the lenght of s1
+		
+		//A way of traversing the string backwards 
+		System.out.printf("%nThe string reversed is: ");
+		for(int i = s1.length() - 1; i > -1; i--)
+		{
+			System.out.printf("%c ", s1.charAt(i));
+		}
+		
+		//Copies the first five chars in s1 to charArray
+		s1.getChars(0,5,charArray,0);
+		System.out.printf("%nThe character array is: ");
+		
+		for(char character: charArray)
+		{
+			System.out.print(character);
+		}
+		
+		System.out.println();
+	}
+}

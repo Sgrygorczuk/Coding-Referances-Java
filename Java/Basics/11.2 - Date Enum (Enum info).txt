@@ -1,0 +1,48 @@
+/*
+An enumeration is a complete, ordered listing of all the items in a collection.
+The term is commonly used in mathematics and computer science to refer to a listing 
+of all of the elements of a set. 
+*/
+public enum Date {
+	/*
+	When creating a enum you can create some pre destined objects inside 
+	of th class  
+	*/
+	Date	("Febuary", "19", "1995"),
+	Date2	("January", "1", "2000"),
+	Date3	("October", "14", "2016"),
+	Date4	("September", "4", "2112"),
+	Date5	("Marh", "6", "6432"),
+	Date6	("April", "1", "1990");
+	
+	/*
+	final is a keyword that means constant  
+	*/
+	private final String month;
+	private final String day;
+	private final String year;
+	
+	/*
+	You don't need to specifiy that the consturctor is private
+	inside of your enum class. 
+	*/
+	Date(String M, String D, String Y)
+	{
+		month = M;
+		day = D;
+		year = Y;
+	}
+	public String GetMonth()
+	{
+		return month;
+	}
+	public String GetDay()
+	{
+		return day;
+	}
+	public String GetYear()
+	{
+		return year;
+	}
+	
+}	

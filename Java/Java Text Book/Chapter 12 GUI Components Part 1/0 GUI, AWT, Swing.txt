@@ -1,0 +1,7 @@
+	/*
+		Java uses two systems for GUI (Graphics User Interface), prenouce Goo-ee, one is Swing and the other is AWT (Abstract Window Toolkit)
+		AWT uses the platfomr that it's being used on for it's graphical look and feel, for instnace if you are using windows it will 
+		take the mimize, maximze and close button layout like all windows aplciatons. On the other hand Swing allows you to spceify the 
+		look and feel of your GUI. Most compoments of of Swing are lightweight componetns since they will use Java's preset look and feel
+		while AWT is seen as heavyweight since it will use the platforms look and feel.  
+	*/

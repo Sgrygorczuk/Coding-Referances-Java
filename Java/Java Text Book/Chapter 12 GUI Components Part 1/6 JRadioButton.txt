@@ -1,0 +1,85 @@
+
+import javax.swing.JPanel;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.event.ItemListener;
+import java.awt.event.ItemEvent;
+import javax.swing.JFrame;
+import javax.swing.JTextField;
+import javax.swing.JRadioButton;
+import javax.swing.ButtonGroup;
+
+public class Main extends JPanel {
+	
+	private final JTextField text;
+	private final Font plain;
+	private final Font italic;
+	private final Font bold;
+	private final Font italicBold;
+	private final JRadioButton plainButton;
+	private final JRadioButton italicButton;
+	private final JRadioButton boldButton;
+	private final JRadioButton italicBoldButton;
+	private final ButtonGroup buttons; 
+	
+	public Main()
+	{
+		setLayout(new FlowLayout());
+		
+		text = new JTextField("Bitch you know it!");
+		add(text);
+		
+		plainButton = new JRadioButton("Plain", true);
+		add(plainButton);
+		boldButton = new JRadioButton("Bold", false);
+		add(boldButton);
+		italicButton = new JRadioButton("Italic", false);
+		add(italicButton);
+		italicBoldButton = new JRadioButton("Italic and Bold", false);
+		add(italicBoldButton);
+		
+		buttons = new ButtonGroup();
+		buttons.add(plainButton);
+		buttons.add(boldButton);
+		buttons.add(italicBoldButton);
+		buttons.add(italicButton);
+		
+		plain = new Font("Times New Roman", Font.PLAIN, 14);
+		italic = new Font("Times New Roman", Font.ITALIC, 14);
+		bold = new Font("Times New Roman", Font.BOLD, 14);
+		italicBold = new Font("Times New Roman", Font.BOLD + Font.ITALIC, 14);
+		
+		text.setFont(plain);
+		
+		plainButton.addItemListener(new RadioButtonHandler(plain));
+		italicButton.addItemListener(new RadioButtonHandler(italic));
+		boldButton.addItemListener(new RadioButtonHandler(bold));
+		italicBoldButton.addItemListener(new RadioButtonHandler(italicBold));
+	}
+	
+	private class RadioButtonHandler implements ItemListener
+	{
+		private Font font; 
+		
+		public RadioButtonHandler(Font f)
+		{
+			font = f;
+		}
+
+		public void itemStateChanged(ItemEvent event) 
+		{
+			text.setFont(font);
+		}
+		
+	}
+	
+	public static void main(String [] args )
+	{
+		Main Drawings = new Main();
+		JFrame frame = new JFrame();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(400,400);
+		frame.setVisible(true);
+		frame.add(Drawings);
+	}
+}

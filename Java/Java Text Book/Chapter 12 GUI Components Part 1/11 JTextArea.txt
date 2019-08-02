@@ -1,0 +1,52 @@
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.Box;
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+
+public class Main extends JFrame {
+	
+	private final JTextArea areaOne;
+	private final JTextArea areaTwo;
+	private final JButton button;
+	
+	public Main()
+	{
+		super("Text Area");
+		Box box =  Box.createHorizontalBox();
+		String demo = "This is a demo string to\n" +
+				 "illustrate copying text\nfrom one textarea to \n" +
+				 "another textarea using an\nexternal event\n";
+		
+		areaOne = new JTextArea(demo, 10,15);
+		box.add(new JScrollPane(areaOne)); //adds scroll to area one
+		
+		
+		button = new JButton(">>> Copy");
+		box.add(button);
+		button.addActionListener(new ActionListener()
+				{
+					public void actionPerformed(ActionEvent event)
+					{
+						areaTwo.setText(areaOne.getSelectedText());
+					}
+				
+				}	
+				);
+		areaTwo = new JTextArea(10,15);
+		areaTwo.setEditable(false);
+		box.add(new JScrollPane(areaTwo));
+		
+		add(box);
+	}
+	
+	public static void main(String [] args )
+	{
+		Main frame = new Main();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(500,500);
+		frame.setVisible(true);
+	}
+}

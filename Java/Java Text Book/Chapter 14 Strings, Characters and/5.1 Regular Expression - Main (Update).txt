@@ -1,0 +1,74 @@
+/*
+This program shows Tokenizing Strings, the ideas is that you can seperate the words 
+using a specific token, or character or punctuation mark and save each part of the string
+as a specific string seperated by the token
+*/
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+public class Main {
+	
+	/*
+	A regular expression is a String that describes a search pattern for matching characters in
+	other Strings. Such expressions are useful for validating input and ensuring that data is in
+	a particular format. For example, a ZIP code must consist of five digits, and a last name
+	must contain only letters, spaces, apostrophes and hyphens. One application of regular expressions
+	is to facilitate the construction of a compiler. Often, a large and complex regular
+	expression is used to validate the syntax of a program. If the program code does not match
+	the regular expression, the compiler knows that there’s a syntax error in the code.
+	*/
+	
+	public static void main(String [] args )
+	{
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Please enter first name:");
+		String firstName = scanner.nextLine();
+		System.out.println("Please enter last name:");
+		String lastName = scanner.nextLine();
+		System.out.println("Please enter address:");
+		String address = scanner.nextLine();
+		System.out.println("Please enter city:");
+		String city = scanner.nextLine();
+		System.out.println("Please enter state:");
+		String state = scanner.nextLine();
+		System.out.println("Please enter zip:");
+		String zip = scanner.nextLine();
+		System.out.println("Please enter phone:");
+		String phone = scanner.nextLine();
+		
+		
+		System.out.println("\nValidate Result:");
+		if (!Validate.validateFirstName(firstName))
+		{
+			System.out.println("Invalid first name");
+		}
+		else if (!Validate.validateLastName(lastName))
+		{
+			System.out.println("Invalid last name");
+		}
+		else if (!Validate.validateAddress(address))
+		{
+			System.out.println("Invalid address");
+		}
+		else if (!Validate.validateCity(city))
+		{
+			System.out.println("Invalid city");
+		}
+		else if (!Validate.validateState(state))
+		{
+			System.out.println("Invalid state");
+		}
+		else if (!Validate.validateZip(zip))
+		{
+			System.out.println("Invalid zip code");
+		}
+		else if (!Validate.validatePhone(phone))
+		{
+			System.out.println("Invalid phone number");
+		}
+		else
+		{
+			System.out.println("Valid input. Thank you.");
+		}
+	}
+}

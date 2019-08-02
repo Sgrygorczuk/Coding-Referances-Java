@@ -1,0 +1,52 @@
+
+public class Date {
+	/*
+	So each object has their own set of variabels, first and last, however 
+	they all share the static variable. Memebrs.  
+	*/
+	private String first;
+	private String last;
+	
+	/*
+	Final means that you cannaot change the value 
+	of this vairable once you asing it one. In this
+	case everyone that enters gets a number of when they enterned and that's 
+	their number forever.  
+	*/
+	private final int Entry;
+	/*
+	Static is a variable that all of the objects share so if one
+	changes it all of them change it to the same change. 
+	*/
+	private static int members;
+	
+	
+	public Date(String F, String L)
+	{
+		first = F;
+		last = L;
+		members++;
+		Entry = members; 
+		System.out.printf("The new club member is %s %s with ticket numebr %d, and "
+				+ "the number of club memebers is %d with\n", first, last, Entry,members);
+	}
+	
+	public String getFirst()
+	{
+		return first;
+	}
+	
+	public String getLast()
+	{
+		return last;
+	}
+	
+	/*
+	This method has to be static since it's using a static variable 
+	*/
+	public static int getMembers()
+	{
+		return members;
+	}
+}	
+

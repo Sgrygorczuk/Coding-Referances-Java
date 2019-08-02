@@ -1,0 +1,28 @@
+import java.util.Random; //To use the random methods you need to import the random class form util
+
+public class Main 
+{
+	/*
+	This is to teach you the math operators and what they do and how to use random number generator.
+	*/
+	public static void main(String args[]) 
+	{
+		int i = 0;
+		System.out.println(Math.abs(-4)	//Abs means Absoulte value |4| = |-4| = 4
+				+ ", " + Math.ceil(4.2)	//ciel stands for ceailign and it rounds up the number 
+				+ ", " + Math.floor(4.2)//floor rounds down the number
+				+ ", " + Math.max(4,2) 	//Max takes two paramiters and will tell you which one is larger.
+				+ ", " + Math.min(4,3)	//Min will take two numbers and find the smallest one
+				+ ", " + Math.pow(4,4)	//Pow stands for power and it set the two numbers to be expoents 5^4
+				+ ", " + Math.sqrt(4)	//Sqrt means square root and it takes a square root of a number
+				);
+		
+		int value;
+		Random Die = new Random();
+		for(i = 0; i < 10; i++)
+		{
+			value = 1 + Die.nextInt(6);	//When setting the number size of random numbers you set it in ()
+			System.out.println(value);
+		}
+	}
+}

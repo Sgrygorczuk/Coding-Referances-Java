@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+/*
+This program is showing basics calucatro
+*/
+
+public class Main {
+
+	public static void main(String args[]) 
+	{
+		Scanner Input = new Scanner(System.in);
+		double FirstNumber = 0;
+		double SecondNumber = 0;
+		double Anwser = 0;
+		System.out.println("Enter the first number: ");
+		FirstNumber = Input.nextDouble(); 
+		
+		/*When you are inputing something you you have
+		to specify what variable you're inputing.
+		*/
+		
+		System.out.println("Enter the second number: ");
+		SecondNumber = Input.nextDouble();
+		Anwser = FirstNumber + SecondNumber;
+		System.out.print("The Sum of the values is: ");
+		System.out.print(Anwser);
+		
+	}
+}

@@ -1,0 +1,62 @@
+import java.awt.FlowLayout; //Spcifices how components are arragned. 
+import javax.swing.JFrame; //JFrame is a class that will provide basic atrributes for our widnows such as title bar, and buttons to maximize, minimze and close.  
+import javax.swing.JLabel; //Allwos for the use of Lables 
+import javax.swing.SwingConstants; //Common constants used with swing
+import javax.swing.Icon; //Allows for manipuatlion for images 
+import javax.swing.ImageIcon; //Loads premade images 
+
+
+public class Main extends JFrame {
+
+	private final JLabel labelOne;
+	private final JLabel labelTwo;
+	private final  JLabel labelThree;
+	
+	//Just made the stuff from lable a consturctor of the Main and now you can just refer to itesle without need for an 
+	//extra class
+	
+	public Main()
+	{
+		//Gives the Window a title
+				super("Lable Testing");
+				
+				//Sets the layout of how the items to add to the screen will appear, FlowLayout takes each items you add 
+				//and add it's to the right of the newest iteam if it doens't fit it'll put it in the next row. 
+				setLayout(new FlowLayout());
+				
+				//Creates the first lable and uses the consturctor to give it's stirng 
+				labelOne = new JLabel("This is some wacky random Text?! AND IT EVEN HAS A TOOL TIP! HOVER OVER ME!");
+				labelOne.setToolTipText("This Tool Tip tells you how to tool tip the tools of the tip!"); //Adds a tooltip
+				add(labelOne);//Adds the label to the iamge 
+				
+				//Was supposed to have an image but it didn't qutie work the Icon couldn't be found
+				//Icon bug = new ImageIcon(getClass().getResource( "bug1.png"));
+				labelTwo = new JLabel("This is a lable with a bug attached to it!", SwingConstants.LEFT); //The swingConstant is what palces the text on 
+																										  //the Left of the image if there was one
+				labelTwo.setToolTipText("This is label two!");
+				add(labelTwo);
+				
+				//Creates a label that who's consturctor is empty and then adds in the extra information later. 
+				labelThree = new JLabel();
+				labelThree.setText("I set the text without using the constructor");
+				labelThree.setHorizontalTextPosition(SwingConstants.RIGHT);
+				labelThree.setVerticalTextPosition(SwingConstants.BOTTOM);
+				labelThree.setToolTipText("LABLE THREE MOTHER PLUCKERS");
+				add(labelThree);
+				
+				//Horizonal words are LEFT, CENTER, RIGHT
+				//Vertical words are TOP, CENTER, RIGHT. 
+	}
+	
+	public static void main (String [] agrs )
+	{
+		//Creare the object of Label from which we will use the graphics from
+		Main frame = new Main();
+		//Sets that if you click exit on the frame it will terminate 
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//Sets the size of the frame in pixels, width,height
+		frame.setSize(400,400);
+		//Allows you to see 
+		frame.setVisible(true);
+	}
+}

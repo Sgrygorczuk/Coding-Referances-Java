@@ -1,0 +1,51 @@
+/*
+This program shows off the insert and delete method nad how 
+you can use them to modife StringBuilder objects. 
+*/
+
+public class Main{
+
+	public static void main(String [] args )
+	{
+		char [] charArray = {'a', 'b', 'c', 'd', 'e', 'f'};
+		boolean boolValue = true;
+		char characterValue = 'Z';
+		int integerValue = 7;
+		long longValue = 10000000000L; 
+		float floatValue = 2.5f;
+		double doubleValue = 33.333;
+		Object objectRef = "hello";
+		String string = "goodbye";
+		
+		StringBuilder lastBuffer = new StringBuilder("last buffer");
+		StringBuilder buffer = new StringBuilder();
+		
+		//YOu can insert at any poinr shown to do it at 1
+		buffer.insert(0, objectRef);
+		buffer.insert(0, " "); // each of these contains two spaces
+		buffer.insert(0, string);
+		buffer.insert(0, " ");
+		buffer.insert(0, charArray);
+		buffer.insert(0, " ");
+		buffer.insert(0, charArray, 3, 3);
+		buffer.insert(0, " ");
+		buffer.insert(0, boolValue);
+		buffer.insert(0, " ");
+		buffer.insert(0, characterValue);
+		buffer.insert(0, " ");
+		buffer.insert(0, integerValue);
+		buffer.insert(0, " ");
+		buffer.insert(0, longValue);
+		buffer.insert(0, " ");
+		buffer.insert(0, floatValue);
+		buffer.insert(0, " ");
+		buffer.insert(0, doubleValue);
+		
+		System.out.printf("buffer after inserts:%n%s%n%n", buffer.toString());
+		
+		//You can delete any specific point, or that point and several chars after it
+		buffer.deleteCharAt(10); // delete 5 in 2.5
+		buffer.delete(2, 6); // delete .333 in 33.333
+		System.out.printf("buffer after deletes:%n%s%n", buffer.toString());
+	}
+}

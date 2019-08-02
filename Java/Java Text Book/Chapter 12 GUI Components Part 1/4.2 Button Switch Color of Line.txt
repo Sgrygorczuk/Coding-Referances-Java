@@ -1,0 +1,86 @@
+/*
+The three parts of event handling are event source, event object and event listner. The event source is the
+part of GUI that the user interacts with such as button, or textfield. The event object contains all the 
+information that is stored when the event is triggered. And the event listner checks if an event was triggered.  
+*/
+
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.Graphics;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
+
+
+public class Main extends JPanel {
+
+	int Choice = 0;
+	
+	public Main()
+	{
+		setLayout(new FlowLayout());
+		
+		JButton plainButton = new JButton("Vanilla");
+		add(plainButton);
+		
+		JButton fancyButton = new JButton("Fanccccccy");
+		add(fancyButton);
+		
+		ButtonHandler handler = new ButtonHandler();
+		plainButton.addActionListener(handler);
+		fancyButton.addActionListener(handler);
+	}
+	
+	public void paintComponent(Graphics g)
+	{
+		if(Choice == 1)
+		{
+			g.setColor(Color.BLUE);
+		}
+		else if (Choice == 2)
+		{
+			g.setColor(Color.RED);
+		}
+		else
+		{
+		g.setColor(Color.BLACK);
+		}
+		super.paintComponents(g);
+		g.drawLine(0, 0, 400, 400);
+	}
+	
+	private class ButtonHandler implements ActionListener
+	{
+		public void actionPerformed(ActionEvent event)
+		{
+			JOptionPane.showMessageDialog(Main.this, String.format("You pressed this: %s", event.getActionCommand()), String.format("Button %s", event.getActionCommand()), JOptionPane.INFORMATION_MESSAGE );
+			String stringy = event.getActionCommand();
+			char c = stringy.charAt(0);
+			if(c == 'V')
+			{
+			Choice = 1;
+			}
+			else if(c == 'F')
+			{
+			Choice = 2;
+			}
+			repaint();
+		}
+	}
+	
+	public static void main(String [] args )
+	{
+		Main Drawings = new Main();
+		JFrame frame = new JFrame();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(400,400);
+		frame.setVisible(true);
+		frame.add(Drawings);
+	}
+}

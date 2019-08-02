@@ -1,0 +1,53 @@
+/*
+This is the subclass it inherice from the Shape class and can uses the setX, setY 
+getX and so on as if they belonged to them. It can do anything the Shape class can
+and can even overwrite functions such as toString to print something else if usesd.
+*/
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
+public class Circle extends Shape
+{
+	private double Radius;
+
+	public Circle(double Radius, int X, int Y, Color Colour)
+	{
+		this.Radius = Radius;
+		setX(X);
+		setY(Y);
+		setColor(Colour);
+	}
+	
+	public int getArea()
+	{
+		return (int) (Math.PI * Math.pow(Radius, 2));
+	}
+	
+	public int getPerimiter()
+	{
+		return (int) (Math.PI * 2 * Radius);
+	}
+	
+	public int getRadius()
+	{
+		return (int) Radius;
+	}
+	
+	public String toString()
+	{
+		return "The radius of the circle is " + Radius + ", with the Area of " + getArea() 
+				+ ", and Perimiter of " + getPerimiter();
+	}
+	
+	public void draw (Graphics g)
+	{
+		
+		g.setColor(Color.BLACK);
+		g.drawLine(0, 0, 400,400);
+		g.setColor(getColor());
+		g.fillOval(getX(), getY(), (int) 2*getRadius(), 2*getRadius());
+		}
+	
+}

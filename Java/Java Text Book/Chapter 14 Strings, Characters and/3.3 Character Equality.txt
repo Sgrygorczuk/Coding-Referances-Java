@@ -1,0 +1,26 @@
+/*
+This program shows the how the Character objects letter values and 
+numberic numbers are not eqaul.
+*/
+
+public class Main {
+	
+	public static void main(String [] args )
+	{
+		Character c1 = 'a';
+		Character c2 = 'A';
+		
+		//The charValue() method gives you a string result of the character
+		System.out.printf("c1 = %s%nc2 = %s%n%n", c1.charValue(), c2.charValue());
+		
+		//Shows that even though they are the same letter their numberic value is not the same
+		if (c1.equals(c2))
+		{
+			System.out.println("c1 and c2 are equal%n");
+		}
+		else
+		{
+			System.out.println("c1 and c2 are not equal\n");
+		}
+	}
+}

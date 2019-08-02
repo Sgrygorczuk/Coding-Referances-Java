@@ -1,0 +1,39 @@
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+
+import javax.swing.JButton;
+
+public class Main extends JFrame {
+	//final means that you can't change it.
+	private final JButton [] buttons; //Creats and array of buttons
+	private final JPanel panel;
+	
+	public Main()
+	{
+		super("Demo Grids");
+		buttons = new JButton[10]; //creats an array of 5 buttons
+		panel = new JPanel(); //creates a panel
+		panel.setLayout(new GridLayout(4,3)); //sets the layout of panel to be 4 by 3
+		
+		for(int i = 0; i < 10; i++)
+		{
+			buttons[i] = new JButton("" + i);
+			panel.add(buttons[i]);
+		}
+		
+		add(panel, BorderLayout.WEST); 
+		
+	}
+	
+	public static void main(String [] args )
+	{
+		Main frame = new Main();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(300,300);
+		frame.setVisible(true);
+	}
+}

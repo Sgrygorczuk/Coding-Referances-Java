@@ -1,0 +1,49 @@
+/*
+The three parts of event handling are event source, event object and event listner. The event source is the
+part of GUI that the user interacts with such as button, or textfield. The event object contains all the 
+information that is stored when the event is triggered. And the event listner checks if an event was triggered.  
+*/
+
+import java.awt.FlowLayout;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+
+public class Main extends JFrame {
+
+	public Main()
+	{
+		super("Buttons MotherFuckers");
+		setLayout(new FlowLayout());
+		
+		JButton plainButton = new JButton("Vanilla");
+		add(plainButton);
+		
+		JButton fancyButton = new JButton("Fanccccccy");
+		add(fancyButton);
+		
+		ButtonHandler handler = new ButtonHandler();
+		plainButton.addActionListener(handler);
+		fancyButton.addActionListener(handler);
+	}
+	
+	private class ButtonHandler implements ActionListener
+	{
+		public void actionPerformed(ActionEvent event)
+		{
+			JOptionPane.showMessageDialog(Main.this, String.format("You pressed this: %s", event.getActionCommand()));
+		}
+	}
+	
+	public static void main(String [] args )
+	{
+		Main frame = new Main();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(400,400);
+		frame.setVisible(true);
+	}
+}

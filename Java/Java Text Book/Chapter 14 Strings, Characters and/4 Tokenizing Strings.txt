@@ -1,0 +1,34 @@
+/*
+This program shows Tokenizing Strings, the ideas is that you can seperate the words 
+using a specific token, or character or punctuation mark and save each part of the string
+as a specific string seperated by the token
+*/
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+public class Main {
+	
+	/*
+	Tokens—individual words and punctuation marks that convey meaning to you. 
+	*/
+	
+	public static void main(String [] args )
+	{
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("Enter a sentace");
+		String sentance = scanner.nextLine();
+		
+		/*
+		Will create an array of strings, where each chunk of setance is
+		seperated anytime a " " (space) is detected.
+		*/
+		String [] tokens = sentance.split(" ");
+		System.out.printf("Number of elements: %d%nThe tokens are:%n", tokens.length);
+		
+		for(String token: tokens)
+		{
+			System.out.print(token + " ");
+		}
+	}
+}

@@ -1,0 +1,31 @@
+public class Main 
+{
+	
+	public static void main(String args[]) 
+	{
+		Date Name1 = new Date("Jake", "Jons");
+		Date Name2 = new Date("Frank", "Fries");
+		Date Name3 = new Date("Kirk", "Krust");
+		
+		System.out.println(" ");
+		
+		/*
+		Static is a varible that is shared amongs all of the 
+		objects of the same class. However they also have 
+		unquie vairables such as first and last.  
+		*/
+		System.out.println(Name1.getFirst() + " " + Name1.getLast()
+				+ " " + Name1.getMembers() );
+		System.out.println(Name2.getFirst() + " " + Name2.getLast()
+		+ " " + Name2.getMembers() );
+		System.out.println(Name2.getFirst() + " " + Name2.getLast()
+		+ " " + Name2.getMembers() );
+		
+		/*
+		Beacues the static variable is share amongst all of the objects 
+		you can acess using the class name 
+		*/
+		
+		System.out.println("Printing using class name: " + Date.getMembers());
+	}
+}

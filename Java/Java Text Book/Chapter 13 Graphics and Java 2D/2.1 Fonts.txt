@@ -1,0 +1,44 @@
+/*
+ This program is here to show off how you can set Font, how to draw strings, and how to
+ retreive the infomration as well as few basic fonts that are avialable. 
+*/
+
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Font;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+
+public class Main extends JPanel {
+	
+
+	public void paintComponent(Graphics g)
+	{
+		super.paintComponents(g);
+		
+		g.setFont( new Font("Serif", Font.BOLD, 12));
+		g.drawString("Serif, BOLD, pt 12", 20, 30);
+		
+		g.setFont(new Font("Monospaced", Font.ITALIC,24));
+		g.drawString("Monospaced, Italic, pt 24", 20, 50);
+		
+		g.setFont(new Font("SansSerif", Font.PLAIN, 14));
+		g.drawString("SansSerif, Plain, pt 14", 20, 70);
+		
+		g.setColor(Color.RED);
+		g.setFont(new Font("Serif", Font.BOLD + Font.ITALIC, 18));
+		g.drawString(g.getFont().getName() + ", Bold & Italic, pt" + g.getFont().getSize(), 20, 90);
+		
+	}
+	
+	public static void main(String [] args )
+	{
+		Main draw = new Main();
+		JFrame frame = new JFrame("FoNT");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(300,300);
+		frame.add(draw);
+		frame.setVisible(true);
+	}
+}

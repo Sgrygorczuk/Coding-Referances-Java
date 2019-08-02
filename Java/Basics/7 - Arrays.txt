@@ -1,0 +1,120 @@
+import java.util.Random;
+
+public class Main 
+{
+	
+	/*
+	Passing and Array into a Method, to pass an array you just send the array, and  
+	then you set up you <data type> <name> []. The array will act as if it passed
+	by referance. However if you were to pass a variable through it, it won't affect
+	the orignal variable. 
+	
+	Obejcts that are passed to a method are passed by referance
+	Primitave variables are passed by value
+	*/
+	public static void Change(int Array[], int a)
+	{
+		int i = 0;
+		for(i = 0; i < Array.length; i++)
+		{
+			Array[i] += 5 ;
+		}
+		a =5;
+	}
+	
+	/*
+	This method prints out a multi dimentional array the way it 
+	would be seen by a human
+	*/
+	
+	public static void PrintMultiLoop(int Array[][])
+	{
+		int i = 0;
+		int j = 0;
+		for(i = 0; i < Array.length; i++)
+		{
+			for(j = 0; j < Array[i].length; j++)
+			{
+				System.out.print(Array[i][j]+ " ");
+			}
+			System.out.print("\n");
+		}
+	}
+
+	public static void main(String args[]) 
+	{
+		/*
+		To create an array you say <data type> name [Size], you can 
+		acess the items in the array through indexes. The indexs start
+		at 0 and works to Size-1. To enter the 0th element you just sat
+		Name[0], this will give you the value of the array.
+		*/
+		int i = 0;
+		int sum =0;
+		int DieFace = 0;
+		Random Die = new Random();
+		int DieArray[] = {0,0,0,0,0,0};
+		int Array[] = new int[5];			//Creates an array of size 5.
+		int Array2[] = {3,13,11,35,2,24,1};	/*
+											Array initilizer it counts how 
+											many values you placd it and make that the size of the array
+											*/
+		
+		/*
+		Making an Array Table 
+		*/
+		System.out.println("Index\tValue");
+		for(i = 0; i < Array2.length; i++)
+		{
+			System.out.println(i + "\t" + Array2[i]);
+		}
+		
+		/*
+		Summing up elements in the Array
+		*/
+		
+		for(i = 0; i < Array2.length; i++)
+		{
+			sum = sum + Array2[i];
+		}
+		System.out.println("The sum of Array2 = " + sum);
+		
+		/*
+		Using Array for storing counters 
+		*/
+		for (i = 0; i < 1000; i++)
+		{
+			DieFace = Die.nextInt(6);
+			DieArray[DieFace]++;
+			
+		}
+			System.out.println("Face\tFequency");
+			for(i = 0; i < DieArray.length; i++)
+			{
+				System.out.println((i+1)+"\t"+DieArray[i]);
+			}
+			
+		System.out.println("\n");
+		
+		//The array being passed into a method. 
+		Change(Array2, sum);
+		for(i = 0; i < Array2.length; i++)
+		{
+			System.out.println(i + "\t" + Array2[i]);
+		}
+		System.out.println(sum);
+		
+		/*
+		MultiDuimentioanl Arrays have two arrays one is rows the other is colums. 
+		The way you set up such array is <data type> <name> [rows][columns]. 
+		*/
+		
+		int MulitArray[][] = {{8,4,32,54},{42,1,42,23,5}};  //{{First row}, {Second Row} , ... ,{nth row}}
+		
+		System.out.println(MulitArray[0][1]); //Should be 4 since 4 is 0th row in 1st column
+		
+		PrintMultiLoop(MulitArray);
+		
+		
+	}
+}

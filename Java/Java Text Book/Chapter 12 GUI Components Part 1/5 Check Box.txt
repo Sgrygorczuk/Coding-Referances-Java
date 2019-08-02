@@ -1,0 +1,85 @@
+/*
+The three parts of event handling are event source, event object and event listner. The event source is the
+part of GUI that the user interacts with such as button, or textfield. The event object contains all the 
+information that is stored when the event is triggered. And the event listner checks if an event was triggered.  
+*/
+
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.JCheckBox;
+
+
+
+public class Main extends JPanel {
+
+	private final JTextField field;
+	private final JCheckBox bold;
+	private final JCheckBox italic;
+	
+	public Main()
+	{
+		setLayout(new FlowLayout());
+		field = new JTextField("FUCK YOU", 20);
+		field.setEditable(false);
+		add(field);
+		
+		bold = new JCheckBox("Bold");
+		add(bold);
+		italic = new JCheckBox("Italic");
+		add(italic);
+		
+		 CheckHandler handler = new CheckHandler();
+		bold.addItemListener(handler);
+		italic.addItemListener(handler);
+	}
+	
+	private class CheckHandler implements ItemListener 
+	{
+		public void itemStateChanged(ItemEvent event)
+		{
+			Font font = null;
+			
+			if(bold.isSelected() && italic.isSelected())
+			{
+				font = new Font("Times New Roman", Font.BOLD + Font.ITALIC, 14);
+			}
+			else if (italic.isSelected())
+			{
+				font = new Font("Times New Roman", Font.ITALIC, 14);
+			}
+			else if(bold.isSelected())
+			{
+				font = new Font("Time New Roman", Font.BOLD, 14);
+			}
+			else
+			{
+				font = new Font("Time New Roman", Font.PLAIN, 14);
+			}
+			field.setFont(font);
+	}
+
+	}
+	
+	public static void main(String [] args )
+	{
+		Main Drawings = new Main();
+		JFrame frame = new JFrame();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(400,400);
+		frame.setVisible(true);
+		frame.add(Drawings);
+	}
+}

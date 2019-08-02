@@ -1,0 +1,66 @@
+import java.awt.event.KeyListener;
+import java.awt.Color;
+import java.awt.event.KeyEvent;
+import javax.swing.JFrame;
+import javax.swing.JTextArea;
+
+public class Main extends JFrame implements KeyListener {
+	
+	private String stringOne = "";
+	private String stringTwo = "";
+	private String stringThree = "";
+	private final JTextArea text;
+	
+	public Main()
+	{
+		super("Keyboard Stuff");
+		
+		text = new JTextArea(10,15);
+		text.setText("Press any keyboards! ALL THE KEYBOARDS!");
+		text.setEnabled(false);
+		text.setDisabledTextColor(Color.BLUE);
+		add(text);
+		
+		addKeyListener(this);
+	}
+	
+	public void keyPressed(KeyEvent event)
+	{
+		stringOne = String.format("The key that was pressed is (%s) ", KeyEvent.getKeyText(event.getKeyCode()));
+		setLines2and3(event);
+	}
+	
+	public void keyReleased(KeyEvent event)
+	{
+		stringOne = String.format("The key that was released is (%s) ", KeyEvent.getKeyText(event.getKeyCode()));
+		setLines2and3(event);
+	}
+	
+	public void keyTyped(KeyEvent event)
+	{
+		stringOne = String.format("The key that was typed is (%s) ",  event.getKeyChar());
+		setLines2and3(event);
+	}
+		
+	private void setLines2and3(KeyEvent event)
+	{
+		stringTwo = String.format("This key %s is an action key", (event.isActionKey() ? "" :"not"));
+		
+		String temp = KeyEvent.getKeyModifiersText(event.getModifiers());
+		
+		stringThree = String.format("Modifier keys pressed: %s",
+				 (temp.equals("") ? "none" : temp)); // output modifiers
+				
+				 text.setText(String.format("%s\n%s\n%s\n",
+				 stringOne, stringTwo, stringThree)); // output three lines of text
+	}
+	
+	
+	public static void main(String [] args )
+	{
+		Main frame = new Main();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(300,300);
+		frame.setVisible(true);
+	}
+}

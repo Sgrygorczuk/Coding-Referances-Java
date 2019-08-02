@@ -1,0 +1,14 @@
+public class Main 
+{
+	
+	public static void main(String args[]) 
+	{
+		Time Everlasting = new Time();
+		System.out.println(Everlasting.MilitartTime());
+		Everlasting.SetTime(4, 21, 13);
+		System.out.println(Everlasting.MilitartTime());
+		System.out.println(Everlasting.AmericanTime());
+		Date Febuary = new Date("Sebastian", Everlasting);
+		System.out.println(Febuary);
+	}
+}

@@ -1,0 +1,90 @@
+import java.awt.FlowLayout; //Gives you the basic layout of the graphics. 
+import java.awt.event.ActionListener; //Waits for the user to do something
+import java.awt.event.ActionEvent; //These are pottentail events 
+
+import javax.swing.JFrame; //Gives you the basic windows features, the minimize, maximze, close buttons. 
+import javax.swing.JLabel; // Allows you to print text and images on the screen
+import javax.swing.JTextField; //Let's user type text in 
+import javax.swing.JPasswordField; //Works same as TextFiled but hides what you type
+import javax.swing.JOptionPane; //Generic Java graphics
+
+
+
+
+public class Graphical extends JFrame //Is a subclass of the JFrame class, can use all of it's functions
+{
+	//Example #2:
+	private JLabel ItemOne;
+	
+	//Example#3:
+	private JTextField ItemTwo;
+	private JTextField ItemThree;
+	private JTextField ItemFour;
+	private JPasswordField ItemFive;
+	
+	public Graphical()
+	{
+		//Example #2: 
+		super("Title"); //This adds a title to the window
+		setLayout(new FlowLayout()); //Gives you the deafult layout
+		
+		ItemOne = new JLabel ("This is a sentance"); //Sets the ItemOne to be that lable pritned on the screen
+		ItemOne.setToolTipText("I am a tool tip \n -If you hover over me I show up. \n -Don't mess with me."); //Sets a tool tip.
+		
+		add(ItemOne); //Adds the item to the screen
+		
+		//Example # 3:
+		ItemTwo = new JTextField(10); //10 is the lenght of it
+		add(ItemTwo);
+		
+		ItemThree = new JTextField("Enter Text Here: "); //Will give some text that can be changed
+		add(ItemThree);
+		
+		ItemFour = new JTextField("Uneditable", 20);  //Says a line, and then 20 is the lenght of the place that it holds on the screne
+		ItemFour.setEditable(false); //The user cannot change this text
+		add(ItemFour);
+		
+		ItemFive = new JPasswordField("MyPass"); //Will show up as ******
+		add(ItemFive);
+		
+		theHandler handler = new theHandler();
+		ItemTwo.addActionListener(handler);
+		ItemThree.addActionListener(handler);
+		ItemFour.addActionListener(handler);
+		ItemFive.addActionListener(handler);
+		
+	}
+	/*
+	This tells you what to if the person pressed enter in the, it creates a empty string 
+	test what the sting is and will output it in the center of the screen
+	*/
+	
+	private class theHandler implements ActionListener //Creates a class that will handle the events 
+	{
+		public void actionPerformed( ActionEvent event) //Event is hitting the enter button
+		{
+			String Stringy = "";
+			
+			if(event.getSource() == ItemOne) //event == click or enter
+			{
+				Stringy = String.format("Field 1: %s", event.getActionCommand()); //Get action command grabbs whatever you entered. 
+			}
+			else if(event.getSource() == ItemTwo)
+			{
+				Stringy = String.format("Field 2: %s", event.getActionCommand());
+			}
+			else if(event.getSource() == ItemThree)
+			{
+				Stringy = String.format("Field 3: %s", event.getActionCommand());
+			}
+			else if(event.getSource() == ItemFive)
+			{
+				Stringy = String.format("Password field: %s", event.getActionCommand()); 
+			}
+		
+		JOptionPane.showMessageDialog(null, Stringy); //shows a generic window in the center of the screen
+		
+		}
+	}
+
+}

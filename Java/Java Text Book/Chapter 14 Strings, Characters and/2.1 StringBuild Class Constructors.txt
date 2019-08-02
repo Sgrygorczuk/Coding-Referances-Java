@@ -1,0 +1,28 @@
+/*
+This program shows off what StringBuild Class can do and what it is used 
+for as well as how intialzing new strings works with it. 
+*/
+
+public class Main{
+	/*
+	StringBuilder for creating and manipulating dynamic
+	string information—that is, modifiable strings. Every StringBuilder is capable of storing
+	a number of characters specified by its capacity. If a StringBuilder’s capacity is
+	exceeded, the capacity expands to accommodate the additional characters. 
+	*/
+	public static void main(String [] args )
+	{
+		
+		//Builds a string with no characters and a starndard capacity of 16 chars
+		StringBuilder buffer1 = new StringBuilder();
+		//Builds a stribng with no character and a capacity of 10 chars
+		StringBuilder buffer2 = new StringBuilder(10);
+		//Builds a string with five chars hello and standard capacity of 16 chars
+		StringBuilder buffer3 = new StringBuilder("Hello");
+		
+		System.out.printf("buffer1 = \"%s\"%n", buffer1);
+		System.out.printf("buffer2 = \"%s\"%n", buffer2);
+		System.out.printf("buffer3 = \"%s\"%n", buffer3);
+		
+	}
+}

@@ -1,0 +1,21 @@
+public class Main 
+{
+	/*
+	What <data type> ... <names>  means that you don't know how many numbers 
+	you are going to use. 
+	*/
+	public static int Average (int ... numbers)
+	{
+		int total = 0;
+		for(int i:numbers)
+		{
+			total +=i;
+		}
+		return total/numbers.length;
+	}	
+
+	public static void main(String args[]) 
+	{
+		System.out.println(Average(3,2,2,31,3,2));
+	}
+}

@@ -1,0 +1,41 @@
+/*
+This program shows how the strings can check the start of strings, automatically at 
+the start or at a specified index, and can also check the end of the string. You 
+specife the prefix and sufix for which the program searches for. 
+*/
+
+public class Main {
+	
+	public static void main(String [] args )
+	{
+		String [] strings = { "started" , "starting" , "ended", "ending"};
+		
+		//Checks if the strings start with st and if they do it prints it
+		for(String st: strings)
+		{
+			if(st.startsWith("st"))
+			{
+				System.out.printf("%s starts with with prefix st%n", st);
+			}
+		}
+		
+		//Checks if the string starts with "art" starting at index 2
+		for(String st:strings)
+		{
+			if(st.startsWith("art", 2))
+			{
+				System.out.printf("\"%s\" starts with \"art\" at position 2%n", st);
+			}
+		}
+		
+		System.out.println();
+		
+		for(String st:strings)
+		{
+			if(st.endsWith("ed"))
+			{
+				System.out.printf("\"%s\" ends with \"ed\"%n", st);
+			}
+		}
+	}
+}

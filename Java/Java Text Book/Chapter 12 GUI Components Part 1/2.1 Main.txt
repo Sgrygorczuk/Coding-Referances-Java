@@ -1,0 +1,16 @@
+import javax.swing.JFrame; 
+
+public class Main extends JFrame {
+
+	public static void main (String [] agrs )
+	{
+		//Creare the object of Label from which we will use the graphics from
+		Lable frame = new Lable();
+		//Sets that if you click exit on the frame it will terminate 
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//Sets the size of the frame in pixels, width,height
+		frame.setSize(400,400);
+		//Allows you to see 
+		frame.setVisible(true);
+	}
+}

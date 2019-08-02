@@ -1,0 +1,53 @@
+import java.awt.BorderLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class Main extends JFrame {
+	
+	private String details;
+	private final JLabel label;
+	
+	public Main()
+	{
+		super("Mouse #1");
+		
+		label = new JLabel("Click the mouse"); //creates a label that say "Clikc the mouse"
+		add(BorderLayout.EAST, label); //"adds the lable in the south of screen"
+		addMouseListener(new MouseClickHandler());
+	}
+	
+	private class MouseClickHandler extends MouseAdapter
+	{
+		public void mouseClicked(MouseEvent event)
+		{
+			int x = event.getX(); // gives you the x postion of click
+			int y = event.getY(); //gives you the y postion of click
+			
+			details = String.format("Clicked %s time(s)", event.getClickCount());
+			
+			if(event.isMetaDown())
+			{
+				details += "with right mouse";
+			}
+			else if (event.isAltDown())
+			{
+				details += "with center button";
+			}
+			else 
+			{
+				details += "with left button";
+			}
+			label.setText(details);
+		}
+	}
+	
+	public static void main(String [] args )
+	{
+		Main frame = new Main();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(300,300);
+		frame.setVisible(true);
+	}
+}

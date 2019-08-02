@@ -1,0 +1,20 @@
+
+public class Date {
+	private String Name;
+	private Time Appointemnt; 
+	
+	public Date(String Name, Time Appointment)
+	{
+		this.Name = Name;
+		this.Appointemnt = Appointment;
+	}
+	/*
+	Since Appointment is not a string variable and it's an object, java will look
+	into the specified class, in this case time. And look for the toString of that class
+	and will use the output of that method in place of your variable. 
+	*/
+	public String toString()
+	{
+		return String.format("My name is %s, and my appointment is at %s", Name, Appointemnt);
+	}
+}	

@@ -1,0 +1,168 @@
+/*
+Private variables can only be used inside the the class they are declared in.
+*/
+public class Time {
+	private int minute;
+	private int second;
+	private int hour;
+	/*
+	This construcotr is setting seconds, minutes and hours
+	but before it sets them it checks if they are valid numbers, 
+	and if not it informs the user of the changes done to their 
+	input. 
+	*/
+	
+	public Time(int s, int m, int h)
+	{
+		SetTime(s,m,h);
+		System.out.printf("The time you set is %s\n", this);
+	}
+	/* 
+	You can't have two consturctors with the same types of inputs. 
+	if you have an int, int, int constructor you can't have another 
+	one like that so this even though it uses diffrent local variables 
+	is not possible.
+	 
+	public Time(int h, int s, int m)
+	{
+		second = ((s < 60 && s >= 0) ? s : 0);
+		minute = ((m < 60 && m >= 0) ? m : 0);
+		hour = ((h < 24 && h >= 0) ? h: 0);
+	}
+	*/
+	
+	/*
+	You can overlaod the constructor like you can overload 
+	the methods. You do that by creating a method with the name 
+	of the class and running a diffrent set of paramiters and 
+	depending on which thing they pass it will have diffrent results. 
+	*/
+	
+	public Time(int s, int m)
+	{
+		second = ((s < 60 && s >= 0) ? s : 0);
+		minute = ((m < 60 && m >= 0) ? m : 0);
+		hour =  0;
+	}
+	
+	public Time(int s)
+	{
+		second = ((s < 60 && s >= 0) ? s : 0);
+		minute = 0;
+		hour =  0;
+	}
+	/*
+	You can use the this operator on multple items, for example
+	this (0,0,0) will set the time to be 0:0:0. This is only possible
+	becuae there exists a consturctor with the three int variables and 
+	it bases it's assingment off of that one. 
+	*/
+	public Time()
+	{
+		this(0,0,0);
+	}
+	
+	
+	public void SetTime(int s, int m, int h)
+	{
+		second = ((s < 60 && s >= 0) ? s : 0);
+		minute = ((m < 60 && m >= 0) ? m : 0);
+		hour = ((h < 24 && h >= 0) ? h: 0);
+	}
+	
+	/*
+	 In this method you declare variables with the same names as the 
+	 variables for the class, and when you change these variables it won't 
+	 affect the class variables.
+	*/
+	public void ShowingStuff (int second, int minute, int hour)
+	{
+		second = second;
+		minute = minute;
+		hour = hour;
+	}
+	
+	/*
+	On the other hand if you use the this. operator it will refer to the class
+	variables and even though they have the same name it knows the differance between
+	the local method variables and the local class variables. 
+	*/
+	public void ShowingStuff2 (int second, int minute, int hour)
+	{
+		this.second = second;
+		this.minute = minute ;
+		this.hour = hour;
+	}
+	
+	/*
+	These follwoing set methods use the same name as the class variable and 
+	to set the class variable to the passed class we use this constructor. 
+	While using the compact if statment to decide wheather the passe values are
+	in the right range for time. If not th enumber will be reset to 0.
+	*/
+	public void SetHour(int hour)
+	{
+		this.hour = ((hour >= 0 && hour < 24) ? hour : 0);
+	}
+	
+	public void SetMinute(int minute)
+	{
+		this.minute = ((minute >= 0 && minute < 60) ? minute : 0) ;
+	}
+	
+	public void SetSecond(int second)
+	{
+		this.second = ((second >= 0 && second < 60) ? second : 0);
+	}
+	
+	public int GetHour()
+	{
+		return hour;
+	}
+	
+	public int GetAmericanHour()
+	{
+		return (hour%12);
+	}
+	
+	public int GetMinute()
+	{
+		return minute;
+	}
+	
+	public int GetSecond()
+	{
+		return second;
+	}
+	
+	/*
+	The %02d means display 2 decimal places of that value, and then it corresponds to the 
+	first given variable in this occasion hour. 
+	*/
+	public String MilitartTime()
+	{
+		return String.format("%02d:%02d:%02d", hour, minute, second);
+	}
+	
+	public String AmericanTime()
+	{
+		String Time =  ((hour > 12) ? "PM" : "AM");
+		return String.format("%02d:%02d:%02d " + Time, hour%12, minute, second);
+	}
+	
+	/*
+	 This line uses specifically the operator this to reffer to a method 
+	 called toString, if such method exists in your class then this 
+	 will refernce that when you ask for a string. %s stands for string. 
+	 The method has to be called "toString" otherwise it won't work.
+	 
+	 Constructor: public Time(int s, int m, int h)->
+	 System.out.printf("The time you set is %s\n", this);
+	*/
+	
+	public String toString()
+	{
+		return String.format("%02d:%02d:%02d", hour, minute, second);
+	}
+	
+}

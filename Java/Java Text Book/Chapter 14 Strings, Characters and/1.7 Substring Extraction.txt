@@ -1,0 +1,20 @@
+/*
+This program shows how the strings can can grab a a substring inside a string and do
+something with it, may it be assing it or print it. You can grab the whole subsring starting 
+at a certain index or pick a specifc section of a string you wanna grab.
+*/
+
+public class Main {
+	
+	public static void main(String [] args )
+	{
+		String letter = "abcdefghijklmabcdefghijklm";
+		
+		//Allows you to get the substring that starts at the indext of 20 assings it to a new string and prints it 
+		String s1 = letter.substring(20);
+		System.out.printf("Substring from index 20 to end is \"%s\"%n", s1);
+		
+		//Allows you to take the substring that starts at index of 3 and ends at index of 6
+		System.out.printf("%s \"%s\"%n","Substring from index 3 up to, but not including 6 is",letter.substring(3, 6));
+	}
+}

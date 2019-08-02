@@ -1,0 +1,34 @@
+/*
+This program shows how the strings can look for specific character and substrings 
+inside the premade string from the front and back.
+*/
+
+public class Main {
+	
+	public static void main(String [] args )
+	{
+		String letter = "abcdefghijklmabcdefghijklm";
+		
+		//Prints out the index of the chracter inside the sting and if 
+		//there is no character it prints out -1. 
+		System.out.printf("'c' is located at index %d%n",letter.indexOf('c'));
+		System.out.printf("'a' is located at index %d%n",letter.indexOf('a'));
+		System.out.printf("'$' is located at index %d%n",letter.indexOf('$'));
+		
+		//Checks for the character from the back of the area
+		System.out.printf("'c' is located at index %d%n",letter.lastIndexOf('c'));
+		System.out.printf("'a' is located at index %d%n",letter.lastIndexOf('a'));
+		System.out.printf("'$' is located at index %d%n",letter.lastIndexOf('$'));
+		
+		//Checks for a substring insdie the string 
+		System.out.printf("'def' is located at index %d%n",letter.indexOf("def"));
+		System.out.printf("'def' is located at index %d%n",letter.indexOf("def", 7)); //skips the first def
+		System.out.printf("'hello' is located at index %d%n",letter.indexOf("hello"));
+		
+		
+		//Checks for a substring insdie the string from the end of the string 
+		System.out.printf("'def' is located at index %d%n",letter.lastIndexOf("def"));
+		System.out.printf("'def' is located at index %d%n",letter.lastIndexOf("def", 25));
+		System.out.printf("'hello' is located at index %d%n",letter.lastIndexOf("hello"));
+	}
+}

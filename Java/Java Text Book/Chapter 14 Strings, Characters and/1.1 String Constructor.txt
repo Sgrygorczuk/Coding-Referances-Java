@@ -1,0 +1,22 @@
+/*
+This program shows how the strings consturctor can be used  
+*/
+
+public class Main {
+	
+	public static void main(String [] args )
+	{
+		char [] charArray = {'b', 'i', 'r', 't', 'h', ' ', 'd', 'a', 'y'};
+		String s = new String("Hello");
+		
+		/*
+		Diffrent ways you can construct new strings  
+		*/
+		String s1 = new String(); //Empty consturctor 
+		String s2 = new String(s); //consturcto using a premade string
+		String s3 = new String(charArray); //constructor using a array of characters 
+		String s4 = new String(charArray, 6, 3); //constructor using 3 chars starting at index 6.
+		
+		System.out.printf("s1 = %s%ns2 = %s%ns3 = %s%ns4 = %s%n", s1, s2, s3, s4);
+	}
+}

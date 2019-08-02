@@ -1,0 +1,33 @@
+import javax.swing.JOptionPane;	//Allows for the use of dialog boxes 
+
+public class Main {
+
+	public static void main (String [] agrs )
+	{
+		//Create strings that will save the inputs that are palced in the input dialog boxes
+		String firstNumber = JOptionPane.showInputDialog("Enter first number: ");
+		String secondNumber = JOptionPane.showInputDialog("Enter second Number: ");
+		
+		//Converts the strings into intgers
+		int numberOne = Integer.parseInt(firstNumber);
+		int numberTwo = Integer.parseInt(secondNumber);
+		
+		//Adds them uo
+		int sum = numberOne + numberTwo;
+		
+		/*
+		Shows the message. The first argument is the postion of the window, saying null puts it in the center of the screen 
+		The second argument is what the message box will say inside it. The third argument is what is the titile of 
+		the diloge box. And the forth argument is the style it shows, depenind go stype it will show diffrent type of 
+		box.
+		*/
+		JOptionPane.showMessageDialog(null, "The sum is " + sum, "Sum of Two Integers", JOptionPane.PLAIN_MESSAGE);
+		
+		//Here are all the Message Box icons 
+		JOptionPane.showMessageDialog(null, "Error: 404", "Error", JOptionPane.ERROR_MESSAGE);	//Gives you an error icon
+		JOptionPane.showMessageDialog(null, "Carrots are Orange", "Information", JOptionPane.INFORMATION_MESSAGE); //Information icon
+		JOptionPane.showMessageDialog(null, "Don't Stay Underwater for too Long", "Warning", JOptionPane.WARNING_MESSAGE); //Warning Message 
+		JOptionPane.showMessageDialog(null, "What are you doing with your life?", "Question", JOptionPane.QUESTION_MESSAGE); //Question Icon
+		JOptionPane.showMessageDialog(null, "Vanilla", "Plain", JOptionPane.PLAIN_MESSAGE); //Plane Message
+	}
+}

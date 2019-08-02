@@ -1,0 +1,68 @@
+import java.util.Scanner; 
+
+public class Main {
+	
+	/*
+	You can set private variables inside of the class, but the have to be inside.  
+	*/
+	private String GirlName; 
+	
+	/*
+	This is a constructor, it dose nothing but create the object. Every class has a
+	defult constructor that does nothing but create the object. However once you 
+	creat a constructor the deafult constructor is no longer there. 
+	*/
+	public Main()
+	{
+		
+	}
+	
+	/*
+	You can overload your constructors and create multiple ones for multiple inputs.
+	This is another consturctor and this one can take in a string and 
+	will set the sting to be equal to the private variable.  
+	*/
+	public Main(String Name)
+	{
+		GirlName = Name;
+	}
+	/*
+	This method sets the value to the private variable, this is the only 
+	way to access it. 
+	*/
+	public void SetName(String Name)
+	{
+		GirlName = Name;
+	}
+	/*
+	This method returns the value of the private variable.
+	*/
+	public String GetName()
+	{
+		return GirlName;
+	}
+	/*
+	This function prints out a statment, when you use printf, you can
+	pass an item into it where the %s is found. There can be only one 
+	%s in the given line. 
+	*/
+	public void Saying()
+	{
+		System.out.printf("Your first girlfirend is %s", GetName());
+		System.out.print("\n");
+	}
+
+	public static void main(String args[]) 
+	{
+		String Name = "Irina (Defult Constructor)";
+		/*
+		Without a constructor you have to use the SetName function to give our class a value.
+		With a Consturcotr you can assign the value instantly. 
+		*/
+		Main Object = new Main(); //Using empty constructor 
+		Main Object2 = new Main("Irina (Strign Consturctor)"); //Using a String constructor.
+		Object.SetName(Name);
+		Object.Saying();
+		Object2.Saying();
+	}
+}

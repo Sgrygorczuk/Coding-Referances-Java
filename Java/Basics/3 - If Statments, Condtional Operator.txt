@@ -1,0 +1,75 @@
+
+public class Main 
+{
+
+	
+	public static void main(String args[]) 
+	{
+		int test = 0;
+		int test2 = 1;
+		int resutl = 0;
+		if(test > 0)	//If(condition), a condtion is a test.
+		{
+			System.out.println("This is larger than 0"); // 0 is not larger than 0 so it won't print
+		}
+		else	//This is the final case of the if statment
+		{
+			System.out.println("This is less than 0");
+		}
+			
+		//This is a new test statment 
+			
+		if(test == 0) //This means test equailty if you set = then it will make test 0. 
+						//To test if it is not equal it is !=.
+		{
+			System.out.println("This is equal to 0"); //Will print
+		}
+		
+		//You don't have to have else statment
+		
+		if((test == 0) && (test2 > 0)) // The && means that both statments have to be true
+		{
+			System.out.println("Both tests passed!");			
+		}
+		
+		if((test > 0) || (test2 > 0)) //The || means that one of the statments has to be true
+		{
+			System.out.println("Both tests passed!");	//In this case first test fails but 
+														//second one passes so it goes through.
+		}
+		
+		/*
+		A nested if statment is one if statment set inside another if statment. So in this case 
+		we have a nested if statment inside the if(test++ == test2) which will be false since it will
+		add after this line. And then we have an else if which gives you more options on if statments. 
+		Which in this case it will be true. 
+		*/
+		if(test++ == test2)
+		{
+			if(test++ > test2)
+			{
+				System.out.println("Test++, Test++ = 2");
+			}
+			else
+			{
+				System.out.println("Test++, Test++ != 2");
+			}
+		}
+		else if(--test == 0)
+		{
+			System.out.println("Test++, --Test = 0");
+		}
+		else
+		{
+			System.out.println("Test++ != Test2");
+		}
+		/*
+		Conditonal Operators is a very compact way of writing and if else statment, you start by
+		giving it a test, after you give it a test you add a question mark, which will treat the test
+		as a boolena expression. After that you have to give it two options, and seperate the two 
+		choices by a colen (:). 
+		*/
+		
+		System.out.println(test < 0 /*test */ ? "Hello" /*Option 1*/ : "Hi" /*Option 2*/);
+	}
+}

@@ -1,0 +1,34 @@
+import java.util.EnumSet;
+
+public class Main 
+{
+	
+	public static void main(String args[]) 
+	{
+		/*
+		When you create an Enumeration class and set some static 
+		objects inside that class, they are all placed inside of an array
+		to access that every class has a method attached to them called 
+		values(). This compacted for loop will pass all of the constants 
+		into the Awesome object. So in this case Awesome is assinged the names
+		of the objects inside enum class, and then the variables stored in them.  
+		So we can print them out in a tablbe. 
+		*/
+		for(Date Awesome: Date.values())
+		{
+			System.out.printf("%s\t%s\t%s\t%s\t\n", Awesome, Awesome.GetMonth(), Awesome.GetDay(), Awesome.GetYear());
+		}
+		
+		System.out.println("\n");
+		/*
+		You can choose a specifc area of the area that you want to acess, to do that
+		you need to import the EnumSet class and with the use of the range method, which
+		allows you to set two objects, to and from, you get to pick the area of objects you 
+		want to get to.
+		*/
+		for(Date Awesome: EnumSet.range(Date.Date2, Date.Date4))
+		{
+			System.out.printf("%s\t%s\t%s\t%s\t\n", Awesome, Awesome.GetMonth(), Awesome.GetDay(), Awesome.GetYear());
+		}
+	}
+}

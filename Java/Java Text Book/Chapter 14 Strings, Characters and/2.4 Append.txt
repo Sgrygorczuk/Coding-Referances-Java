@@ -1,0 +1,33 @@
+/*
+This program shows off the append method in the StringBuilder 
+that allows you to add parts to the buffer from any data type. 
+It only adds them to the end of the current buffer.
+*/
+
+public class Main{
+
+	public static void main(String [] args )
+	{
+		char [] charArray = {'a', 'b', 'c', 'd', 'e', 'f'};
+		boolean boolValue = true;
+		char characterValue = 'Z';
+		int integerValue = 7;
+		long longValue = 10000000000L; 
+		float floatValue = 2.5f;
+		double doubleValue = 33.333;
+		Object objectRef = "hello";
+		String string = "goodbye";
+		
+		StringBuilder lastBuffer = new StringBuilder("last buffer");
+		StringBuilder buffer = new StringBuilder();
+		
+		buffer.append(objectRef).append("\n")
+		.append(string).append("\n").append(characterValue)
+		.append("\n").append(charArray,0,3).append("\n")
+		.append(boolValue).append("\n").append(integerValue)
+		.append("\n").append(longValue).append("\n").append(floatValue)
+		.append("\n").append(doubleValue).append("\n").append(lastBuffer);
+		
+		System.out.printf("buffer contains%n%s%n", buffer.toString());
+	}
+}

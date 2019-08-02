@@ -1,0 +1,56 @@
+/*
+This program show cases how to create coustume shapes 
+using the polyon function. To draw using a polygon 
+you need a array of x and y coordinates so that it can 
+follow your points. 
+*/
+
+import java.awt.Graphics;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import java.awt.Color;
+import java.awt.Polygon;
+
+public class Main extends JPanel {
+	
+	public void paintComponent(Graphics g)
+	{
+		super.paintComponent(g);
+		this.setBackground(Color.WHITE);
+		
+		//Creates two arrays and a polygona shaped based on them then draws it
+		int [] x = {20,40,50,30,20,15};
+		int [] y = {50,50,60,80,80,60};
+		Polygon poly1 = new Polygon(x,y,6);
+		g.drawPolygon(poly1);
+		
+		//Creates two arrays and just draws them without an polygon object
+		int [] x2 = {70,90,100,80,70,65,60};
+		int [] y2 = {100,100,110,110,130,110,90};
+		g.drawPolyline(x2, y2, 7);
+		
+		//Creates two arrays and fills the shape that they create 
+		int [] x3 = {120,140,150,190};
+		int [] y3 = {40,70,80,60};
+		g.fillPolygon(x3, y3, 4);
+		
+		//Creates a polyogn shape out of sepreate points that are added to it
+		Polygon poly2 = new Polygon();
+		poly2.addPoint(165, 135);
+		poly2.addPoint(175, 150);
+		poly2.addPoint(270,200);
+		poly2.addPoint(200, 220);
+		poly2.addPoint(130,180);
+		g.fillPolygon(poly2);
+	}
+	
+	public static void main(String [] args )
+	{
+		Main draw = new Main();
+		JFrame frame = new JFrame("Fonts # 1");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(500,500);
+		frame.add(draw);
+		frame.setVisible(true);
+	}
+}

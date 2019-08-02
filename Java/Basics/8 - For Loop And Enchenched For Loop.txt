@@ -1,0 +1,32 @@
+public class Main 
+{
+
+	public static void main(String args[]) 
+	{
+		
+		int i = 0;
+		int Array[] = {1,2,3,4,5,6};
+		int sum = 0;
+		/*
+		This is a normal for loop
+		*/
+		for (i = 0; i < Array.length; i++)
+		{
+			sum = sum + Array[i];
+		}
+		System.out.println(sum);
+		
+		/*
+		 Enchacned for loop; only takes two paramiters, the first one 
+		 is the type of data you're running through it and then you name the array.
+		 And what it does is it acesses each value at each index inside of the given
+		 array.
+		*/
+		sum = 0;
+		for(int j: Array)
+		{
+			sum += j;
+		}
+		System.out.println(sum);
+	}	
+}

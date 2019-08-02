@@ -1,0 +1,33 @@
+/*
+This program shows off how the StringBuild Class modify aspects 
+of the object such as capcity and length. Capacity is the amount 
+the object can hold at most while lenght is the amount of spaces 
+taken by characters is. 
+*/
+
+public class Main{
+
+	public static void main(String [] args )
+	{
+		/*
+		 Creates the StringBuilder object, it sets 19 char without
+		 setting capacity, and sicne it excces 16 it makes next largerst
+		 which is 35. 
+		 */
+		StringBuilder buffer = new StringBuilder("Hello, how are you?");
+		System.out.printf("buffer = %s%nlength = %d%ncapacity = %d%n%n", 
+				buffer.toString(), buffer.length(), buffer.capacity());
+		
+		//You can change the capcity of the 
+		buffer.ensureCapacity(75);
+		System.out.printf("New capacity = %d%n%n",buffer.capacity());
+		
+		//Changes the lenght to 10 cutting off any charaters past that point
+		buffer.setLength(10);
+		System.out.printf("New length = %d%nbuffer = %s%n",buffer.length(), buffer.toString());
+	
+		buffer.setLength(19);
+		System.out.printf("New length = %d%nbuffer = %s%n",buffer.length(), buffer.toString());
+		
+	}
+}

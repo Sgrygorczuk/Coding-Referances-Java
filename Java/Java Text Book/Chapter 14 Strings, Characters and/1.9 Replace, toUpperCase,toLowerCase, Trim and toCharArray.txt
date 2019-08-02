@@ -1,0 +1,45 @@
+/*
+This program shows how replace, toUpperCase,toLowerCase, trim and toCharArray work.
+All of these take the oringal string object and modife it's content in a temproary string
+without doing anything to the oringal object. 
+*/
+
+public class Main {
+	
+	public static void main(String [] args )
+	{
+		String s1 = "hello";
+		String s2 = "GOODBYE";
+		String s3 = "   space   ";
+		
+		System.out.printf("s1 = %s%ns2 = %s%ns3 = %s%n%n", s1, s2, s3);
+
+		/*
+		 The replace functon looks for all inscanes of the oldCharacter and replaces them with the new character
+		 You can only change character for characters and substring for substrings
+		 This does not change the string objects conent just creates a temporarty string 
+		 */ 
+		System.out.printf("Replace 'l' with 'L' in s1: %s%n%n",s1.replace('l', 'L'));
+		System.out.printf("Replace 'l' with 'L' in s1: %s%n%n",s1.replace("h", "BOObs"));
+		
+		//Changes all characters to their upper case versions
+		System.out.printf("s1.toUpperCase() = %s%n", s1.toUpperCase());
+		
+		//Changes all characters to their lower case versions 
+		System.out.printf("s1.toUpperCase() = %s%n", s1.toLowerCase());
+		
+		//Remvoes any white space from the front and end of the string
+		System.out.printf("s3 after trim = \"%s\"%n%n", s3.trim());
+		
+		//Converts string to a char array
+		char [] charArray = s1.toCharArray();
+		
+		System.out.print("The charArray = ");
+		for(char character:charArray)
+		{
+			System.out.printf("%c",character);
+		}
+		
+		System.out.printf("%ns1 = %s%ns2 = %s%ns3 = %s%n%n", s1, s2, s3);
+	}
+}

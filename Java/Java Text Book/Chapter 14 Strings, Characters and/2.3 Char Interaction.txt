@@ -1,0 +1,35 @@
+/*
+This program shows off how the StringBuild Class can work with
+characters, character arrays and how it cna modify them if need be.
+*/
+
+public class Main{
+
+	public static void main(String [] args )
+	{
+		StringBuilder buffer = new StringBuilder("hello there");
+		
+		//You can acess specific characters
+		System.out.printf("buffer = %s%n", buffer.toString());
+		System.out.printf("Character at 0: %s%nCharacter at 4: %s%n%n",
+				buffer.charAt(0), buffer.charAt(4));
+		
+		//You can transfer the charcaters stored in object to an characater array
+		char [] charArray = new char[buffer.length()];
+		buffer.getChars(0, buffer.length(), charArray, 0);
+		System.out.print("The characters are: ");
+		for(char chars: charArray)
+		{
+			System.out.print(chars);
+		}
+		
+		//You can change specific characters at chose postions
+		buffer.setCharAt(0, 'H');
+		buffer.setCharAt(6, 'T');
+		System.out.printf("%n%nbuffer = %s", buffer.toString());
+		
+		//You can reveres the character, modifying the original object
+		buffer.reverse();
+		System.out.printf("%n%nbuffer = %s%n", buffer.toString());
+	}
+}

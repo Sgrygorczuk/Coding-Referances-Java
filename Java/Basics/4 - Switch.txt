@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class Main 
+{
+
+	
+	public static void main(String args[]) 
+	{
+		int Number = 0;
+		Scanner input = new Scanner(System.in);
+		Number = input.nextInt();
+		
+		/*
+		A swtich statment is similar to an if statment but requaires you
+		 to qrite down each case, switch(condioon) say check if any case is eqaul 
+		 to condioon. And then if it dosen't find it it will go to defualt.  
+		*/
+		switch(Number)
+		{
+		case 0:
+		{
+			System.out.println("Zero");
+			break;
+		}
+		case 1:
+		{
+			System.out.println("One");
+			break;
+		}
+		case 2:
+		{
+			System.out.println("Two");
+			break;
+		}
+		default:
+		{
+			System.out.println("Not in Switch");
+		}
+		}
+	}
+}
